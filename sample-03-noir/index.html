@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Noir Coffee & Bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a; --surface: #141414; --ink: #f0f0f0; --muted: #999999;
+  --accent: #c9955a; --line: #2a2a2a;
+  --font-head: 'Bodoni Moda', serif; --font-body: 'Montserrat', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; font-weight: 300; }
+img { display: block; max-width: 100%; object-fit: cover; filter: brightness(0.85); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 400; line-height: 1.2; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; }
+nav { position: fixed; top: 0; left: 0; width: 100%; padding: 30px 0; z-index: 100; transition: 0.4s; }
+nav.scrolled { background: rgba(10, 10, 10, 0.95); padding: 15px 0; border-bottom: 1px solid var(--line); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-head); font-size: 1.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink); }
+.nav-links a:hover { color: var(--accent); }
+@media (max-width: 768px) { .nav-links { display: none; } }
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1920&q=80') center/cover; }
+.hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 20px; letter-spacing: 0.02em; }
+.hero p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--accent); margin-bottom: 40px; }
+.btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; }
+.btn:hover { background: var(--accent); color: var(--bg); }
+.menu-section { background: var(--surface); }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; }
+.menu-col h3 { font-size: 2rem; color: var(--accent); margin-bottom: 30px; border-bottom: 1px solid var(--line); padding-bottom: 15px; }
+.menu-item { margin-bottom: 30px; }
+.menu-item .header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.menu-item h4 { font-size: 1.2rem; font-family: var(--font-body); font-weight: 500; }
+.menu-item .price { font-family: var(--font-head); font-size: 1.2rem; color: var(--accent); }
+.menu-item p { font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 768px) { .menu-grid { grid-template-columns: 1fr; gap: 40px; } }
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.gallery img { height: 400px; width: 100%; }
+@media (max-width: 768px) { .gallery { grid-template-columns: 1fr; } }
+footer { text-align: center; border-top: 1px solid var(--line); padding: 80px 0 40px; }
+footer h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
+footer p { font-size: 0.9rem; color: var(--muted); margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <div class="logo">NOIR</div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <p>Espresso · Cocktails · Vinyl</p>
+    <h1>After hours,<br>brewed to perfection.</h1>
+    <a href="#menu" class="btn">Explore</a>
+  </div>
+</header>
+<section id="menu" class="menu-section">
+  <div class="wrap">
+    <div style="text-align: center;">
+      <h2 style="font-size: 3rem; margin-bottom: 10px;">The Menu</h2>
+      <p style="color: var(--accent); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Curated for the evening</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-col">
+        <h3>Coffee</h3>
+        <div class="menu-item">
+          <div class="header"><h4>Double Espresso</h4><span class="price">$4</span></div>
+          <p>Dark roast, notes of cocoa and cherry</p>
+        </div>
+        <div class="menu-item">
+          <div class="header"><h4>Velvet Flat White</h4><span class="price">$5</span></div>
+          <p>Silky microfoam, double shot</p>
+        </div>
+        <div class="menu-item">
+          <div class="header"><h4>Affogato</h4><span class="price">$7</span></div>
+          <p>Vanilla bean gelato, hot espresso</p>
+        </div>
+      </div>
+      <div class="menu-col">
+        <h3>Evening</h3>
+        <div class="menu-item">
+          <div class="header"><h4>Espresso Martini</h4><span class="price">$14</span></div>
+          <p>Vodka, coffee liqueur, fresh espresso</p>
+        </div>
+        <div class="menu-item">
+          <div class="header"><h4>Cold Brew Negroni</h4><span class="price">$15</span></div>
+          <p>Gin, campari, sweet vermouth, cold brew</p>
+        </div>
+        <div class="menu-item">
+          <div class="header"><h4>Dark Chocolate Porter</h4><span class="price">$9</span></div>
+          <p>Local craft beer, roasted malt</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="gallery">
+  <div class="wrap gallery">
+    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Interior">
+    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Cocktail">
+  </div>
+</section>
+<footer id="visit">
+  <div class="wrap">
+    <h2>NOIR</h2>
+    <p>88 Shadow Lane, Downtown</p>
+    <p>Open Daily: 4 PM — 1 AM</p>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+</body>
+  </html>
