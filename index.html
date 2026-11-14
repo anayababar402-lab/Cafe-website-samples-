@@ -8,14 +8,31 @@
   body { font-family: system-ui, sans-serif; background:#faf7f2; color:#221c17; max-width:900px; margin:0 auto; padding:60px 24px; text-align: center; }
   h1 { font-size:2.2rem; margin-bottom:8px; margin-top: 50px;}
   p  { color:#7a6f66; margin-bottom:40px; }
-  .btn { display:inline-block; background:#b07d4f; color:#fff; padding:15px 30px; text-decoration:none; border-radius:5px; font-weight:bold; margin-top:20px; font-family: sans-serif; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+  .card { background:#fff; border:1px solid #e6ded2; border-radius:8px; padding:30px; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .card h2 { font-size:1.3rem; margin-bottom:10px; }
+  .card p { font-size:0.9rem; color:#7a6f66; margin-bottom:20px; }
+  .btn { display:inline-block; background:#b07d4f; color:#fff; padding:12px 24px; text-decoration:none; border-radius:5px; font-weight:bold; font-family: sans-serif; font-size: 0.9rem; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
   <h1>Café Website Samples</h1>
   <p>Live demos ready to be customized for your café.</p>
   
-  <a href="sample-01-brew-bloom/" class="btn">View Sample 01 (Brew & Bloom) →</a>
+  <div class="grid">
+    <div class="card">
+      <h2>Sample 01: Brew & Bloom</h2>
+      <p>Warm, inviting, editorial style with a rich coffee palette.</p>
+      <a href="sample-01-brew-bloom/" class="btn">View Demo →</a>
+    </div>
+
+    <div class="card">
+      <h2>Sample 02: Verdant</h2>
+      <p>Bright, minimalist, modern style with clean fonts and soft green accents.</p>
+      <a href="sample-02-verdant/" class="btn">View Demo →</a>
+    </div>
+  </div>
 
 </body>
 </html>
