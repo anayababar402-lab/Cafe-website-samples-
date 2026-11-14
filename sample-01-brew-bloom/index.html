@@ -4,334 +4,122 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brew & Bloom — Specialty Coffee House</title>
-<meta name="description" content="Brew & Bloom — specialty coffee, fresh pastries and a warm corner of the city." />
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   1. THEME VARIABLES  —  change these 5 lines = new café style
-   ============================================================ */
 :root{
-  --bg:        #faf7f2;   /* page background */
-  --surface:   #ffffff;   /* cards */
-  --ink:       #221c17;   /* main text */
-  --muted:     #7a6f66;   /* secondary text */
-  --accent:    #b07d4f;   /* brand colour (coffee caramel) */
-  --accent-2:  #2f4a3d;   /* deep green */
-  --dark:      #1a1512;   /* dark sections */
-  --line:      #e6ded2;   /* borders */
-
+  --bg: #faf7f2; --surface: #ffffff; --ink: #221c17; --muted: #7a6f66;
+  --accent: #b07d4f; --accent-2: #2f4a3d; --dark: #1a1512; --line: #e6ded2;
   --font-head: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-
-  --radius: 4px;
-  --wrap: 1160px;
+  --radius: 4px; --wrap: 1160px;
 }
 
-/* ============================================================
-   2. RESET / BASE
-   ============================================================ */
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
-body{
-  font-family:var(--font-body);
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{ font-family:var(--font-body); background:var(--bg); color:var(--ink); line-height:1.65; overflow-x:hidden; }
 img{ display:block; max-width:100%; }
 a{ color:inherit; text-decoration:none; }
 h1,h2,h3{ font-family:var(--font-head); font-weight:600; line-height:1.15; }
-
 .wrap{ width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:24px; }
 
-.eyebrow{
-  font-size:.72rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--accent); font-weight:600; margin-bottom:14px;
-}
+.eyebrow{ font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:14px; }
 .section-head{ max-width:620px; margin-bottom:56px; }
 .section-head h2{ font-size:clamp(1.9rem, 4vw, 2.9rem); }
 .section-head p{ color:var(--muted); margin-top:14px; }
-
 section{ padding:100px 0; }
 @media (max-width:640px){ section{ padding:70px 0; } }
 
-/* ============================================================
-   3. BUTTONS
-   ============================================================ */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  padding:14px 30px; border-radius:var(--radius);
-  font-size:.82rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
-  transition:all .25s ease; border:1px solid transparent; cursor:pointer;
-}
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 30px; border-radius:var(--radius); font-size:.82rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; transition:all .25s ease; border:1px solid transparent; cursor:pointer; }
 .btn-primary{ background:var(--accent); color:#fff; }
 .btn-primary:hover{ background:#96683f; transform:translateY(-2px); }
 .btn-ghost{ border-color:rgba(255,255,255,.55); color:#fff; }
 .btn-ghost:hover{ background:#fff; color:var(--ink); border-color:#fff; }
-.btn-dark{ background:var(--dark); color:#fff; }
-.btn-dark:hover{ background:var(--accent-2); transform:translateY(-2px); }
 
-/* ============================================================
-   4. NAVIGATION
-   ============================================================ */
-.nav{
-  position:fixed; inset:0 0 auto 0; z-index:100;
-  padding:20px 0; transition:all .35s ease;
-}
-.nav.scrolled{
-  background:rgba(250,247,242,.94);
-  backdrop-filter:blur(12px);
-  padding:12px 0;
-  box-shadow:0 1px 0 var(--line);
-}
+/* NAVIGATION */
+.nav{ position:fixed; inset:0 0 auto 0; z-index:1000; padding:20px 0; transition:all .35s ease; }
+.nav.scrolled{ background:rgba(250,247,242,.94); backdrop-filter:blur(12px); padding:12px 0; box-shadow:0 1px 0 var(--line); }
 .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
-
-.logo{
-  font-family:var(--font-head); font-size:1.35rem; font-weight:600;
-  color:#fff; letter-spacing:.02em; transition:color .35s ease;
-}
+.logo{ font-family:var(--font-head); font-size:1.35rem; font-weight:600; color:#fff; transition:color .35s ease; }
 .logo span{ color:var(--accent); }
 .nav.scrolled .logo{ color:var(--ink); }
-
 .nav-links{ display:flex; align-items:center; gap:34px; list-style:none; }
-.nav-links a{
-  font-size:.82rem; font-weight:500; letter-spacing:.06em;
-  color:rgba(255,255,255,.9); transition:color .25s;
-}
+.nav-links a{ font-size:.82rem; font-weight:500; color:rgba(255,255,255,.9); transition:color .25s; }
 .nav-links a:hover{ color:var(--accent); }
 .nav.scrolled .nav-links a{ color:var(--ink); }
-.nav.scrolled .nav-links a:hover{ color:var(--accent); }
-
 .nav .btn{ padding:11px 22px; font-size:.72rem; }
 
-.burger{
-  display:none; flex-direction:column; gap:5px;
-  background:none; border:0; cursor:pointer; padding:8px;
-}
+.burger{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px; }
 .burger span{ display:block; width:24px; height:2px; background:#fff; transition:.3s; }
 .nav.scrolled .burger span{ background:var(--ink); }
 
 @media (max-width:900px){
-  .nav-links{
-    position:fixed; inset:0 0 0 auto; width:min(78vw,320px);
-    flex-direction:column; justify-content:center; gap:28px;
-    background:var(--dark); transform:translateX(100%);
-    transition:transform .4s ease;
-  }
+  .nav-links{ position:fixed; inset:0 0 0 auto; width:min(78vw,320px); flex-direction:column; justify-content:center; gap:28px; background:var(--dark); transform:translateX(100%); transition:transform .4s ease; z-index:999; }
   .nav-links.open{ transform:translateX(0); }
-  .nav-links a{ color:#fff !important; font-size:1rem; }
-  .burger{ display:flex; z-index:110; }
+  .nav-links a{ color:#fff !important; font-size:1.2rem; }
+  .burger{ display:flex; z-index:1001; }
   .nav .btn{ display:none; }
 }
 
-/* ============================================================
-   5. HERO
-   ============================================================ */
-.hero{
-  position:relative; min-height:100svh; display:flex; align-items:center;
-  padding:120px 0 80px; overflow:hidden;
-}
-.hero-bg{
-  position:absolute; inset:0;
-  background:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  transform:scale(1.05);
-}
-.hero-bg::after{
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(105deg, rgba(20,15,12,.88) 0%, rgba(20,15,12,.62) 45%, rgba(20,15,12,.30) 100%);
-}
+/* HERO */
+.hero{ position:relative; min-height:100svh; display:flex; align-items:center; padding:160px 0 80px; overflow:hidden; }
+.hero-bg{ position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; }
+.hero-bg::after{ content:''; position:absolute; inset:0; background:linear-gradient(105deg, rgba(20,15,12,.88) 0%, rgba(20,15,12,.62) 45%, rgba(20,15,12,.30) 100%); }
 .hero .wrap{ position:relative; z-index:2; }
 .hero-content{ max-width:640px; }
-.hero h1{
-  font-size:clamp(2.6rem, 6.5vw, 4.6rem);
-  color:#fff; margin-bottom:24px; letter-spacing:-.01em;
-}
+.hero h1{ font-size:clamp(2.6rem, 6.5vw, 4.6rem); color:#fff; margin-bottom:24px; }
 .hero h1 em{ color:var(--accent); font-style:italic; }
-.hero p{
-  color:rgba(255,255,255,.82); font-size:1.05rem; font-weight:300;
-  max-width:460px; margin-bottom:38px;
-}
+.hero p{ color:rgba(255,255,255,.82); font-size:1.05rem; max-width:460px; margin-bottom:38px; }
 .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; }
-
-.hero-meta{
-  position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:40px;
-  margin-top:70px; padding-top:32px; border-top:1px solid rgba(255,255,255,.18);
-}
-.hero-meta div{ color:#fff; }
-.hero-meta strong{ display:block; font-family:var(--font-head); font-size:1.5rem; }
+.hero-meta{ position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:40px; margin-top:70px; padding-top:32px; border-top:1px solid rgba(255,255,255,.18); }
+.hero-meta strong{ display:block; font-family:var(--font-head); font-size:1.5rem; color:#fff; }
 .hero-meta small{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6); }
 
-/* ============================================================
-   6. ABOUT
-   ============================================================ */
-.about-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
-}
-.about-img{ position:relative; }
-.about-img img{
-  width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius);
-}
-.about-img::before{
-  content:''; position:absolute; inset:24px -24px -24px 24px;
-  border:1px solid var(--accent); border-radius:var(--radius); z-index:-1;
-}
+/* ABOUT */
+.about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.about-img img{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius); }
 .about-text h2{ font-size:clamp(1.9rem, 4vw, 2.8rem); margin-bottom:22px; }
 .about-text p{ color:var(--muted); margin-bottom:18px; }
-.about-sign{
-  font-family:var(--font-head); font-style:italic; font-size:1.3rem;
-  color:var(--accent-2); margin-top:28px;
-}
-@media (max-width:900px){
-  .about-grid{ grid-template-columns:1fr; gap:60px; }
-  .about-img::before{ display:none; }
-}
+@media (max-width:900px){ .about-grid{ grid-template-columns:1fr; gap:60px; } }
 
-/* ============================================================
-   7. MENU
-   ============================================================ */
+/* MENU */
 .menu{ background:var(--surface); }
-.menu-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:56px;
-}
-.menu-col h3{
-  font-size:1.25rem; padding-bottom:16px; margin-bottom:22px;
-  border-bottom:1px solid var(--line); position:relative;
-}
-.menu-col h3::after{
-  content:''; position:absolute; left:0; bottom:-1px; width:52px; height:2px;
-  background:var(--accent);
-}
-.menu-item{
-  display:flex; align-items:baseline; gap:10px; padding:11px 0;
-}
+.menu-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:56px; }
+.menu-col h3{ font-size:1.25rem; padding-bottom:16px; margin-bottom:22px; border-bottom:1px solid var(--line); }
+.menu-item{ display:flex; align-items:baseline; gap:10px; padding:11px 0; }
 .menu-item .name{ font-weight:500; font-size:.98rem; }
-.menu-item .dots{
-  flex:1; border-bottom:1px dotted var(--line); transform:translateY(-4px);
-}
+.menu-item .dots{ flex:1; border-bottom:1px dotted var(--line); transform:translateY(-4px); }
 .menu-item .price{ font-weight:600; color:var(--accent); font-size:.95rem; }
-.menu-item small{ display:block; color:var(--muted); font-size:.82rem; font-weight:400; }
-
-.menu-note{
-  margin-top:60px; text-align:center; color:var(--muted); font-size:.9rem;
-}
+.menu-item small{ display:block; color:var(--muted); font-size:.82rem; }
 @media (max-width:900px){ .menu-grid{ grid-template-columns:1fr; gap:44px; } }
 
-/* ============================================================
-   8. GALLERY
-   ============================================================ */
-.gallery-grid{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
-}
-.gallery-grid figure{
-  overflow:hidden; border-radius:var(--radius); position:relative;
-}
+/* GALLERY */
+.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.gallery-grid figure{ overflow:hidden; border-radius:var(--radius); }
 .gallery-grid figure:nth-child(1){ grid-column:span 2; grid-row:span 2; }
-.gallery-grid img{
-  width:100%; height:100%; object-fit:cover; aspect-ratio:1;
-  transition:transform .6s ease;
-}
-.gallery-grid figure:nth-child(1) img{ aspect-ratio:auto; height:100%; }
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; aspect-ratio:1; transition:transform .6s ease; }
 .gallery-grid figure:hover img{ transform:scale(1.06); }
-@media (max-width:700px){
-  .gallery-grid{ grid-template-columns:repeat(2,1fr); }
-  .gallery-grid figure:nth-child(1){ grid-column:span 2; grid-row:auto; }
-}
+@media (max-width:700px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } .gallery-grid figure:nth-child(1){ grid-column:span 2; grid-row:auto; } }
 
-/* ============================================================
-   9. VISIT / HOURS
-   ============================================================ */
+/* VISIT */
 .visit{ background:var(--dark); color:#fff; }
 .visit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; }
-.visit .eyebrow{ color:var(--accent); }
-.visit h2{ font-size:clamp(1.9rem, 4vw, 2.8rem); margin-bottom:32px; }
-
 .hours{ list-style:none; }
-.hours li{
-  display:flex; justify-content:space-between; gap:20px;
-  padding:14px 0; border-bottom:1px solid rgba(255,255,255,.12);
-  font-size:.95rem;
-}
-.hours li span:last-child{ color:rgba(255,255,255,.65); }
-.hours li.today span{ color:var(--accent); font-weight:600; }
-
-.visit-info{ margin-top:40px; display:grid; gap:22px; }
-.visit-info div strong{
-  display:block; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--accent); margin-bottom:6px;
-}
-.visit-info div p{ color:rgba(255,255,255,.8); font-weight:300; }
-
-.visit-map{
-  border-radius:var(--radius); overflow:hidden; min-height:420px;
-  background:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80') center/cover;
-  position:relative;
-}
-.visit-map::after{
-  content:'📍 Find us'; position:absolute; inset:auto 20px 20px auto;
-  background:#fff; color:var(--ink); padding:10px 18px; border-radius:var(--radius);
-  font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-}
+.hours li{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.12); }
+.visit-info{ margin-top:40px; }
+.visit-map{ border-radius:var(--radius); min-height:420px; background:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80') center/cover; }
 @media (max-width:900px){ .visit-grid{ grid-template-columns:1fr; gap:50px; } }
 
-/* ============================================================
-   10. CTA BANNER
-   ============================================================ */
-.cta{
-  text-align:center; padding:110px 0;
-  background:
-    linear-gradient(rgba(20,15,12,.78), rgba(20,15,12,.78)),
-    url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
-  color:#fff;
-}
-.cta h2{ font-size:clamp(2rem, 5vw, 3.2rem); margin-bottom:18px; }
-.cta p{ color:rgba(255,255,255,.78); max-width:460px; margin:0 auto 36px; font-weight:300; }
-
-/* ============================================================
-   11. FOOTER
-   ============================================================ */
+/* FOOTER */
 footer{ background:var(--surface); padding:64px 0 32px; border-top:1px solid var(--line); }
-.foot-top{
-  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:56px;
-  padding-bottom:48px; border-bottom:1px solid var(--line);
-}
-.foot-top h4{
-  font-family:var(--font-head); font-size:1.15rem; margin-bottom:18px;
-}
-.foot-top p, .foot-top a{ color:var(--muted); font-size:.9rem; }
-.foot-top ul{ list-style:none; display:grid; gap:10px; }
-.foot-top a:hover{ color:var(--accent); }
-.foot-bottom{
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-  padding-top:28px; font-size:.8rem; color:var(--muted);
-}
-.socials{ display:flex; gap:14px; }
-.socials a{
-  width:36px; height:36px; border:1px solid var(--line); border-radius:50%;
-  display:grid; place-items:center; font-size:.75rem; transition:.25s;
-}
-.socials a:hover{ background:var(--accent); color:#fff; border-color:var(--accent); }
+.foot-top{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:56px; padding-bottom:48px; border-bottom:1px solid var(--line); }
 @media (max-width:800px){ .foot-top{ grid-template-columns:1fr; gap:36px; } }
-
-/* ============================================================
-   12. SCROLL REVEAL ANIMATION
-   ============================================================ */
-.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
-.reveal.visible{ opacity:1; transform:none; }
-@media (prefers-reduced-motion:reduce){
-  .reveal{ opacity:1; transform:none; transition:none; }
-  html{ scroll-behavior:auto; }
-}
 </style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="#" class="logo">Brew <span>&</span> Bloom</a>
@@ -348,7 +136,6 @@ footer{ background:var(--surface); padding:64px 0 32px; border-top:1px solid var
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="wrap">
@@ -361,98 +148,111 @@ footer{ background:var(--surface); padding:64px 0 32px; border-top:1px solid var
         <a href="#visit" class="btn btn-ghost">Find us</a>
       </div>
     </div>
-    <div class="hero-meta">
-      <div><strong>12</strong><small>Single origins</small></div>
-      <div><strong>5am</strong><small>Fresh pastries</small></div>
-      <div><strong>7:00</strong><small>Open daily</small></div>
-    </div>
   </div>
 </section>
 
-<!-- ============ ABOUT ============ -->
 <section id="about">
   <div class="wrap about-grid">
-    <div class="about-img reveal">
-      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80" alt="Barista pouring latte art" />
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80" alt="Barista" />
     </div>
-    <div class="about-text reveal">
+    <div class="about-text">
       <p class="eyebrow">Our story</p>
-      <h2>Small batch. Slow roasted. Honestly poured.</h2>
+      <h2>Small batch. Slow roasted.</h2>
       <p>Brew &amp; Bloom started as a two-table corner shop with one espresso machine and a stubborn belief that good coffee should feel like a welcome, not a transaction.</p>
-      <p>Today we roast in small batches every Tuesday, source pastries from a bakery three streets away, and still remember most of our regulars by drink.</p>
-      <p class="about-sign">— Mira &amp; Jonas, founders</p>
+      <p>Today we roast in small batches every Tuesday and source pastries from a bakery three streets away.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ MENU ============ -->
 <section id="menu" class="menu">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head">
       <p class="eyebrow">The menu</p>
       <h2>Everything is made to order</h2>
-      <p>Seasonal beans rotate monthly. Oat, almond and whole milk always available.</p>
     </div>
-
     <div class="menu-grid">
-      <div class="menu-col reveal">
+      <div class="menu-col">
         <h3>Espresso</h3>
-        <div class="menu-item"><div><span class="name">Espresso</span><small>Double shot, house blend</small></div><div class="dots"></div><span class="price">$3.0</span></div>
-        <div class="menu-item"><div><span class="name">Cortado</span><small>Equal parts milk &amp; espresso</small></div><div class="dots"></div><span class="price">$3.8</span></div>
+        <div class="menu-item"><div><span class="name">Espresso</span><small>Double shot</small></div><div class="dots"></div><span class="price">$3.0</span></div>
         <div class="menu-item"><div><span class="name">Flat White</span><small>Silky microfoam</small></div><div class="dots"></div><span class="price">$4.2</span></div>
-        <div class="menu-item"><div><span class="name">Cappuccino</span><small>Classic, dusted cocoa</small></div><div class="dots"></div><span class="price">$4.2</span></div>
-        <div class="menu-item"><div><span class="name">Mocha</span><small>70% dark chocolate</small></div><div class="dots"></div><span class="price">$4.8</span></div>
+        <div class="menu-item"><div><span class="name">Cappuccino</span><small>Classic</small></div><div class="dots"></div><span class="price">$4.2</span></div>
       </div>
-
-      <div class="menu-col reveal">
+      <div class="menu-col">
         <h3>Brew Bar</h3>
-        <div class="menu-item"><div><span class="name">V60 Pour Over</span><small>Rotating single origin</small></div><div class="dots"></div><span class="price">$5.0</span></div>
+        <div class="menu-item"><div><span class="name">V60 Pour Over</span><small>Rotating origin</small></div><div class="dots"></div><span class="price">$5.0</span></div>
         <div class="menu-item"><div><span class="name">Cold Brew</span><small>18-hour steep</small></div><div class="dots"></div><span class="price">$4.6</span></div>
-        <div class="menu-item"><div><span class="name">Aeropress</span><small>Bright &amp; clean</small></div><div class="dots"></div><span class="price">$4.8</span></div>
-        <div class="menu-item"><div><span class="name">Matcha Latte</span><small>Ceremonial grade</small></div><div class="dots"></div><span class="price">$4.9</span></div>
-        <div class="menu-item"><div><span class="name">Chai</span><small>House-spiced, oat milk</small></div><div class="dots"></div><span class="price">$4.5</span></div>
+        <div class="menu-item"><div><span class="name">Matcha Latte</span><small>Ceremonial</small></div><div class="dots"></div><span class="price">$4.9</span></div>
       </div>
-
-      <div class="menu-col reveal">
+      <div class="menu-col">
         <h3>From the Oven</h3>
-        <div class="menu-item"><div><span class="name">Butter Croissant</span><small>Baked at 5am daily</small></div><div class="dots"></div><span class="price">$3.6</span></div>
-        <div class="menu-item"><div><span class="name">Almond Danish</span><small>Frangipane, toasted flakes</small></div><div class="dots"></div><span class="price">$4.2</span></div>
-        <div class="menu-item"><div><span class="name">Banana Bread</span><small>Toasted, salted butter</small></div><div class="dots"></div><span class="price">$4.0</span></div>
-        <div class="menu-item"><div><span class="name">Avocado Toast</span><small>Sourdough, chili, lime</small></div><div class="dots"></div><span class="price">$8.5</span></div>
-        <div class="menu-item"><div><span class="name">Granola Bowl</span><small>Yoghurt, honey, berries</small></div><div class="dots"></div><span class="price">$7.5</span></div>
+        <div class="menu-item"><div><span class="name">Butter Croissant</span><small>Baked at 5am</small></div><div class="dots"></div><span class="price">$3.6</span></div>
+        <div class="menu-item"><div><span class="name">Banana Bread</span><small>Salted butter</small></div><div class="dots"></div><span class="price">$4.0</span></div>
+        <div class="menu-item"><div><span class="name">Avocado Toast</span><small>Sourdough</small></div><div class="dots"></div><span class="price">$8.5</span></div>
       </div>
     </div>
-
-    <p class="menu-note">Prices in USD · Ask about our loyalty card — 10th coffee is on us.</p>
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
 <section id="gallery">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Inside the shop</p>
-      <h2>Warm light, worn tables, good company</h2>
-    </div>
-    <div class="gallery-grid reveal">
-      <figure><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80" alt="Café interior" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Latte on table" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Fresh pastries" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80" alt="Coffee beans" /></figure>
-      <figure><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Latte art" /></figure>
+    <div class="gallery-grid">
+      <figure><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80" alt="Café" /></figure>
+      <figure><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Latte" /></figure>
+      <figure><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Pastries" /></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ VISIT ============ -->
 <section id="visit" class="visit">
   <div class="wrap visit-grid">
-    <div class="reveal">
+    <div>
       <p class="eyebrow">Visit us</p>
       <h2>We saved you a seat</h2>
-
       <ul class="hours">
         <li><span>Monday – Friday</span><span>7:00 – 18:00</span></li>
         <li><span>Saturday</span><span>8:00 – 19:00</span></li>
         <li><span>Sunday</span><span>9:00 – 16:00</span></li>
- 
+      </ul>
+      <div class="visit-info">
+        <p><strong>Address:</strong> 128 Maple Lane, Old Town</p>
+        <p><strong>Contact:</strong> hello@brewandbloom.cafe</p>
+      </div>
+    </div>
+    <div class="visit-map"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <h4>Brew &amp; Bloom</h4>
+        <p>Specialty coffee house in Old Town.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul style="list-style:none; line-height:2;">
+          <li><a href="#about">About us</a></li>
+          <li><a href="#menu">Menu</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => navLinks.classList.remove('open'))
+);
+</script>
+</body>
+   </html>
