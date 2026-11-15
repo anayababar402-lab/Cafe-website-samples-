@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison Rosé — Patisserie & Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdfbfb; --surface: #f9e9ec; --ink: #3d2a2a; --muted: #8a7373;
+  --accent: #c98b8b; --line: #eedcdc;
+  --font-head: 'Cormorant Garamond', serif; --font-body: 'Jost', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; font-weight: 300; }
+img { display: block; max-width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.1; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; padding: 24px 0; background: rgba(253, 251, 251, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--line); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-head); font-size: 1.8rem; font-weight: 600; color: var(--ink); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); }
+.nav-links a:hover { color: var(--accent); }
+@media (max-width: 768px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 90vh; background: linear-gradient(rgba(253,251,251,0.7), rgba(253,251,251,0.9)), url('https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=1920&q=80') center/cover; padding-top: 80px; }
+.hero h1 { font-size: clamp(3rem, 6vw, 5rem); color: var(--ink); margin-bottom: 20px; }
+.hero p { font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 500px; margin-inline: auto; }
+.btn { display: inline-block; padding: 16px 40px; background: var(--accent); color: #fff; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s; border-radius: 30px; }
+.btn:hover { background: #b07575; transform: translateY(-2px); }
+
+/* MENU */
+.menu-section { background: var(--surface); }
+.menu-header { text-align: center; margin-bottom: 60px; }
+.menu-header h2 { font-size: 3rem; color: var(--ink); }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 60px; }
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--accent); padding-bottom: 15px; }
+.menu-item h4 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; }
+.menu-item p { font-size: 0.9rem; color: var(--muted); margin-top: 5px; }
+.menu-item .price { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+@media (max-width: 768px) { .menu-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-img { border-radius: 50% 50% 0 0; overflow: hidden; height: 500px; }
+.about-img img { height: 100%; width: 100%; }
+.about-text h2 { font-size: 2.8rem; margin-bottom: 20px; }
+.about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; }
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .about-img { height: 350px; } }
+
+/* FOOTER */
+footer { background: var(--ink); color: #fff; text-align: center; padding: 80px 0; }
+footer h2 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 20px; color: var(--surface); }
+footer p { color: #bba8a8; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="logo">Maison Rosé</div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>French Pastries &<br>Morning Coffee.</h1>
+    <p>A little slice of Paris in the heart of the city. Baked fresh every morning with love.</p>
+    <a href="#menu" class="btn">View Menu</a>
+  </div>
+</header>
+
+<section id="menu" class="menu-section">
+  <div class="wrap">
+    <div class="menu-header">
+      <h2>La Carte</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div>
+          <h4>Pain au Chocolat</h4>
+          <p>Flaky pastry with dark chocolate</p>
+        </div>
+        <span class="price">$4.5</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Rose Latte</h4>
+          <p>Espresso, steamed milk, rose syrup</p>
+        </div>
+        <span class="price">$5.5</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Macaron Box</h4>
+          <p>Assorted flavors (Box of 6)</p>
+        </div>
+        <span class="price">$12.0</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Croissant aux Amandes</h4>
+          <p>Almond croissant with frangipane</p>
+        </div>
+        <span class="price">$5.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=800&q=80" alt="Pastries">
+    </div>
+    <div class="about-text">
+      <h2>Baked with passion.</h2>
+      <p>Maison Rosé was born from a love of French baking and the joy of a slow morning. We use only the finest butter, fresh seasonal fruit, and specialty coffee beans.</p>
+      <p>Whether you're stopping by for a quick espresso or a box of macarons for someone special, we can't wait to serve you.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="visit">
+  <div class="wrap">
+    <h2>Maison Rosé</h2>
+    <p>45 Petal Street, Arts District</p>
+    <p>Open Daily: 7:00 AM — 4:00 PM</p>
+  </div>
+</footer>
+
+</body>
+  </html>
