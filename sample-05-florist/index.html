@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bloom & Petal — Artisan Florist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fcfbfa; --surface: #f4f1eb; --ink: #2c332d; --muted: #7a857c;
+  --accent: #8ca88e; --accent-light: #e8ede8; --line: #e3dfd7;
+  --font-head: 'Playfair Display', serif; --font-body: 'Jost', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 400; line-height: 1.1; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; padding: 24px 0; background: rgba(252, 251, 250, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--line); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.nav-links a:hover { color: var(--accent); }
+@media (max-width: 768px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(252,251,250,0.6), rgba(252,251,250,0.8)), url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1920&q=80') center/cover; padding-top: 80px; }
+.hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: 20px; color: var(--ink); }
+.hero p { font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 500px; margin-inline: auto; }
+.btn { display: inline-block; padding: 16px 40px; background: var(--accent); color: #fff; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s; border-radius: 2px; }
+.btn:hover { background: #738f75; transform: translateY(-2px); }
+
+/* SHOP GRID */
+.shop-section { background: var(--surface); }
+.shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+.shop-card { background: #fff; padding: 20px; text-align: center; transition: 0.3s; }
+.shop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.shop-card img { height: 300px; width: 100%; margin-bottom: 20px; }
+.shop-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+.shop-card .price { font-family: var(--font-head); color: var(--accent); font-size: 1.2rem; }
+@media (max-width: 900px) { .shop-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .shop-grid { grid-template-columns: 1fr; } }
+
+/* ABOUT */
+.about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-split img { height: 600px; width: 100%; }
+.about-split h2 { font-size: 2.8rem; margin-bottom: 24px; }
+.about-split p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; }
+@media (max-width: 900px) { .about-split { grid-template-columns: 1fr; gap: 40px; } .about-split img { height: 400px; } }
+
+/* FOOTER */
+footer { background: var(--ink); color: #fff; text-align: center; padding: 80px 0; }
+footer h2 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 20px; color: var(--surface); }
+footer p { color: #a0b0a2; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="logo">Bloom & Petal</div>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Fresh flowers for<br>every occasion.</h1>
+    <p>Hand-tied bouquets, seasonal blooms, and botanical gifts delivered with love.</p>
+    <a href="#shop" class="btn">Shop Bouquets</a>
+  </div>
+</header>
+
+<section id="shop" class="shop-section">
+  <div class="wrap">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="font-size: 3rem;">Our Blooms</h2>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600&q=80" alt="Bouquet">
+        <h3>The Spring Mix</h3>
+        <p style="color: var(--muted); margin-bottom: 10px;">Tulips, daffodils, and seasonal greens.</p>
+        <div class="price">$35.00</div>
+      </div>
+      <div class="shop-card">
+        <img src="https://images.unsplash.com/photo-1599731834141-3aa2c19bb6a6?auto=format&fit=crop&w=600&q=80" alt="Roses">
+        <h3>Classic Romance</h3>
+        <p style="color: var(--muted); margin-bottom: 10px;">A dozen premium red roses.</p>
+        <div class="price">$55.00</div>
+      </div>
+      <div class="shop-card">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="Plant">
+        <h3>Botanical Gift</h3>
+        <p style="color: var(--muted); margin-bottom: 10px;">Potted Monstera in a ceramic planter.</p>
+        <div class="price">$40.00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-split">
+    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" alt="Florist at work">
+    <div>
+      <h2>Grown with love.</h2>
+      <p>We believe that flowers have the power to speak when words fail. Every bouquet is handcrafted in our studio using the freshest locally-sourced and imported blooms.</p>
+      <p>Whether you are celebrating a wedding, an anniversary, or just want to brighten someone's day, we are here to help you find the perfect arrangement.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="visit">
+  <div class="wrap">
+    <h2>Bloom & Petal</h2>
+    <p>45 Garden Avenue, City Center</p>
+    <p>Open Mon-Sat: 9:00 AM — 7:00 PM</p>
+  </div>
+</footer>
+
+</body>
+                                   </html>
